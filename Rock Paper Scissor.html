@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissor</title>
+  </head>
+  <body>
+    <script>
+      function rpsGame(choice) {
+        let win = "You Win";
+        let los = "You Lost";
+        let tie = "Its a Tie";
+        let rVal = document.getElementById("rsltVal");
+        let uchoice = document.getElementById("uChoice");
+        let cchoice = document.getElementById("cChoice");
+        let choicesList = ["Rock", "Paper", "Scissors"];
+        let rndIntVal = Math.floor(Math.random() * 3);
+        let randomChoiceVal = choicesList[rndIntVal];
+        uchoice.innerHTML = choice;
+        cchoice.innerHTML = randomChoiceVal;
+
+        if (choice == "Rock" && randomChoiceVal == "Paper") {
+          rVal.innerHTML = los;
+        } else if (choice == "Paper" && randomChoiceVal == "Rock") {
+          rVal.innerHTML = win;
+        } else if (choice == "Paper" && randomChoiceVal == "Scissor") {
+          rVal.innerHTML = los;
+        } else if (choice == "Rock" && randomChoiceVal == "Scissor") {
+          rVal.innerHTML = win;
+        } else if (choice == "Scissor" && randomChoiceVal == "Rock") {
+          rVal.innerHTML = los;
+        } else if (choice == "Scissor" && randomChoiceVal == "Paper") {
+          rVal.innerHTML = win;
+        } else if (choice == randomChoiceVal) {
+          rVal.innerHTML = tie;
+        }
+      }
+    </script>
+
+    <style>
+      body {
+        background-color: papayawhip;
+      }
+      #mainDiv {
+        margin: 3%;
+        border: dashed black;
+      }
+      #tblData {
+        display: grid;
+        grid-column: 2;
+        grid-template-columns: auto auto;
+      }
+      #btnRow {
+        display: grid;
+        grid-template-columns: auto auto auto;
+      }
+      .optBtn {
+        margin-left: 10%;
+        width: 75%;
+        height: 200%;
+      }
+      .optBtn:hover {
+        color: papayawhip;
+        background-color: black;
+      }
+    </style>
+    <center>
+      <div id="mainDiv">
+        <h1 id="heading">Rock Paper Scissor Game</h1>
+        <hr />
+
+        <h1>Choices</h1>
+        <div id="tblData">
+          <h1>You</h1>
+          <h1 id="uChoice"></h1>
+          <h1>Comp</h1>
+          <h1 id="cChoice"></h1>
+        </div>
+
+        <!-- Availiable Choices  -->
+        <hr />
+        <br />
+
+        <div id="btnRow">
+          <button onclick="rpsGame('Rock')" class="optBtn">Rock</button>
+          <button onclick="rpsGame('Paper')" class="optBtn">Paper</button>
+          <button onclick="rpsGame('Scissor')" class="optBtn">Scissor</button>
+        </div>
+        <br />
+        <br />
+
+        <hr />
+        <h1>Result</h1>
+        <h1 id="rsltVal"></h1>
+      </div>
+    </center>
+  </body>
+</html>
